@@ -12,7 +12,7 @@ class Student:
         self.root.geometry("1370x768+0+0")
         self.root.title("Face Detection")
         
-        #-----------variable declaration-----------
+        #---variable declaration---
         
         self.var_name=StringVar()
         self.var_dep=StringVar()
@@ -54,7 +54,7 @@ class Student:
         main_frame=Frame(bg_img,bd=2)
         main_frame.place(x=5,y=55,width=1368,height=530)
         
-        ##-----left frame
+        ##---left frame---
         
         left_frame=LabelFrame(main_frame,bd=2,text="Student Details",font=("arial",12,"bold"),relief=RIDGE,bg="aliceblue",fg="black")
         left_frame.place(x=50,y=10,width=560,height=475)
@@ -171,7 +171,7 @@ class Student:
         update_photo_btn.grid(row=0,column=1)
         
         
-        ##-----right frame
+        #---right frame---
         
         right_frame=LabelFrame(main_frame,bd=2,text="Student Details",font=("arial",12,"bold"),relief=RIDGE,bg="aliceblue",fg="black")
         right_frame.place(x=750,y=10,width=560,height=475)
@@ -194,7 +194,7 @@ class Student:
         f_lbl.place(x=0,y=635,width=1370,height=100)
         
         
-        #-------------search system--------------------
+        #---search system---
         '''
         search_frame=LabelFrame(right_frame,bd=2,text="Search System",font=("arial",10,"bold"),bg="aliceblue",fg="black")
         search_frame.place(x=10,y=80,width=540,height=70)
@@ -217,7 +217,7 @@ class Student:
         show_All_btn.grid(row=0,column=4)
         '''
         
-        #------------------table frame----------------
+        #---table frame---
         
         table_frame=Frame(right_frame,bd=2,relief=RIDGE)
         table_frame.place(x=10,y=90,width=540,height=350) 
@@ -232,7 +232,7 @@ class Student:
         scroll_x.config(command=self.student_table.xview)
         scroll_y.config(command=self.student_table.yview)
         
-        #-----------student tables-----------
+        #---student tables---
         
         self.student_table.heading("name",text="Name")
         self.student_table.heading("dep",text="Department")
@@ -255,13 +255,13 @@ class Student:
          
         self.student_table.pack(fill=BOTH,expand=1)
         
-        #---cursor and fetching of data-----------
+        #---cursor and fetching of data---
         self.student_table.bind("<ButtonRelease>",self.get_cursor)
         self.fetch_data()
         
         
         
-    #-----function for adding data to database----------
+    #---function for adding data to database---
     
     def add_data(self):
         if self.var_dep.get()=="Select Department" or self.var_name.get()=="" or self.var_ID.get()==0:
@@ -288,7 +288,7 @@ class Student:
                     
                 conn.commit()
                 
-                #-----data fetch into table
+                #---data fetch into table---
                 self.fetch_data()
                 
                 conn.close()
@@ -299,7 +299,7 @@ class Student:
                 
                 
             
-       #----------------fetch data into table--------------
+       #---fetch data into table---
     def fetch_data(self):
         conn=mysql.connector.connect(host="localhost",user="root",password="xCx@#3219669",database="project2")
         my_cursor=conn.cursor()
@@ -315,7 +315,7 @@ class Student:
 
 
     
-    #----------------get cursor function---------
+    #---get cursor function---
     
     def get_cursor(self,event=""):
         cursor_focus=self.student_table.focus()
@@ -331,7 +331,7 @@ class Student:
         self.var_phone.set(data[6])
         self.var_radio1.set(data[7])
 
-#-------------update function---------------------    
+#---update function---    
     
     def update_function(self):
       # Validation: Ensure all required fields are filled
@@ -386,7 +386,7 @@ class Student:
         except Exception as ex:
             messagebox.showerror("Error", f"An unexpected error occurred: {ex}", parent=self.root)
             
-    #------------delete data----------
+    #---delete data---
     def delete_data(self):
         if self.var_ID.get()=="":
             messagebox.showerror("Error","Student ID must be required",parent=self.root)
@@ -409,7 +409,7 @@ class Student:
                 messagebox.showinfo("Delete"<"Sucessfully delete message",parent=self.root)
             except Exception as es:
                 messagebox.showerror("Error",f"Deu To:{str(es)}",parent=self.root)
-    #---------------reset button----------
+    #---reset button---
     def reset_data(self):
         self.var_name.set("Select Student Name")
         self.var_dep.set("Select Department")  
@@ -421,7 +421,7 @@ class Student:
         self.var_radio1.set("")   
         
         
-    #----------------generate datasets function---------------     
+    #---generate datasets function---
     
     def generate_dataset(self):
         if self.var_dep.get()=="Select Department" or self.var_name.get()=="" or self.var_ID.get()==0:
@@ -451,7 +451,7 @@ class Student:
                 self.reset_data()    
                 conn.close()
                 
-                #-------load predefined data for frontal face from opencv----------------
+                #---load predefined data for frontal face from opencv---
                 
                 face_classifier=cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
                 
