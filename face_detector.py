@@ -37,7 +37,7 @@ class Face_Detector:
         b1.place(x=500, y=430, width=358, height=50)
            
            
-           #--------for adding to xlm file-------------
+           #---for adding to xlm file---
     def mark_attendance(self, name, student_id, department):
       with open("raju.csv", "r+", newline="\n") as f:
         myDataList = f.readlines()
