@@ -15,7 +15,7 @@ class Attendance:
         self.root.geometry("1370x768+0+0")
         self.root.title("Attendance")
         
-        #-------variables 
+        #---variables--- 
         self.var_attend_id=StringVar()
         self.var_attend_name=StringVar() 
         self.var_attend_dep=StringVar() 
@@ -47,7 +47,7 @@ class Attendance:
         main_frame=Frame(bg_img,bd=2)
         main_frame.place(x=5,y=55,width=1368,height=530)
         
-        ##-----left frame
+        ##---left frame---
         
         left_frame=LabelFrame(main_frame,bd=2,text="Student Attendance Details",font=("arial",12,"bold"),relief=RIDGE,bg="aliceblue",fg="black")
         left_frame.place(x=50,y=10,width=605,height=475)
@@ -62,9 +62,9 @@ class Attendance:
         left_inside_frame=Frame(left_frame,bd=2,relief=RIDGE,bg="white")
         left_inside_frame.place(x=0,y=135,width=600,height=318)
         
-        #-- labels and entry
+        #---labels and entry---
         
-         #-attendance ID 
+         #attendance ID 
         attendanceID_label=Label(left_inside_frame,text="AttendanceID:",bg="white", font="comicsansns 11 bold")
         attendanceID_label.grid(row=0,column=0,padx=10,pady=5,sticky=W)
         
@@ -92,8 +92,6 @@ class Attendance:
 
         atten_time=ttk.Entry(left_inside_frame,textvariable=self.var_attend_time, width=22, font="comicsansns 11 bold")
         atten_time.grid(row=2, column=1, pady=8)
-
-        
 
 
         # Date
@@ -130,7 +128,7 @@ class Attendance:
         reset_btn.grid(row=0,column=2)
         
         
-         ##-----right frame
+         ##---right frame---
         
         right_frame=LabelFrame(main_frame,bd=2,text="Student Details",font=("arial",12,"bold"),relief=RIDGE,bg="aliceblue",fg="black")
         right_frame.place(x=750,y=10,width=560,height=475)
@@ -145,7 +143,7 @@ class Attendance:
         table_frame=Frame(right_frame,bd=2,relief=RIDGE,bg="white")
         table_frame.place(x=5,y=5,width=545,height=445)
         
-        #---------------- scroll bar
+        #---scroll bar---
         
         scroll_x=ttk.Scrollbar(table_frame,orient=HORIZONTAL)
         scroll_y=ttk.Scrollbar(table_frame,orient=VERTICAL)
@@ -175,7 +173,8 @@ class Attendance:
         
         self.AttendanceReportTable.pack(fill=BOTH,expand=1)
         self.AttendanceReportTable.bind("<ButtonRelease>",self.get_cursor)
-        #----------fetch data     
+        
+        #---fetch data---     
     def fetchData(self,rows):
         self.AttendanceReportTable.delete(*self.AttendanceReportTable.get_children())
         for i in rows:
@@ -191,7 +190,7 @@ class Attendance:
                 mydata.append(i)
             self.fetchData(mydata)
                        
-    #--------export csv
+    #---export csv---
     def exportCsv(self):
         try:
             if len(mydata)<1:
