@@ -146,44 +146,42 @@ class Face_Detection_System:
         f_lbl.place(x=0,y=615,width=1370,height=100)
         
         
-        #----------------------function---------------------
+        #----function----
         
-     #---function to open images in folder------       
+     #---function to open images in folder---       
     def open_img(self):
         os.startfile("data")
     
-    #-----function to close app    
+    #---function to close app---    
     def close_window(self):
         os._exit(0)  
             
-    #--function for student detail   
+    #---function for student detail---   
     def student_details(self):
             self.new_window=Toplevel(self.root)
             self.app=Student(self.new_window)
             
-    #---function for training of the data-----        
+    #---function for training of the data---  
     def training(self):
         self.new_window=Toplevel(self.root)
         self.app=Train_Data(self.new_window)
         
-    #-----function for face detector--
+    #---function for face detector---
     def face_detector(self):
         self.new_window=Toplevel(self.root)
         self.app=Face_Detector(self.new_window)
         
-    #------function for attendance------
+    #---function for attendance---
     def Attend(self):
         self.new_window=Toplevel(self.root)
         self.app=Attendance(self.new_window)
-    #----------function for help-desk -----
-    
-    
+        
+    #---function for help-desk ---
     def help_desk(self):
         self.new_window=Toplevel(self.root)
         self.app=Help(self.new_window)   
         
-    #----------function developers -----
-    
+    #---function developers ---
     def developers(self):
         self.new_window=Toplevel(self.root)
         self.app=Developer(self.new_window)             
@@ -198,4 +196,3 @@ if __name__ == "__main__":
     
         
 
-#--------to remove virtual environment ---------write-- rm -r env  env or file name
