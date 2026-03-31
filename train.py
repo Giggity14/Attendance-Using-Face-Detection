@@ -7,7 +7,6 @@ import os
 import numpy as np
 import cv2
 
-
 class Train_Data:
     def __init__(self, root):
         self.root=root
@@ -31,7 +30,7 @@ class Train_Data:
         bg_img.place(x=0,y=100,width=1370,height=568)
         
         
-        #--------photo sample training-------
+        #---photo sample training---
         
         title_lbl=Label(bg_img,text="Photo Sample Training",font=("Arial",30,"bold"),bg="aliceblue",fg="black")
         title_lbl.place(x=0,y=0,width=1370,height=50)
@@ -54,7 +53,7 @@ class Train_Data:
         
         
         
-        #--LBPH algorithms for the training---------------
+        #---LBPH algorithms for the training---
             
     def train_classifier(self):
         data_dir=("data")
@@ -74,7 +73,7 @@ class Train_Data:
             
         ids=np.array(ids)
             
-        #-----train the classifier and save----
+        #---train the classifier and save---
         clf=cv2.face.LBPHFaceRecognizer_create()
         clf.train(faces,ids)
         clf.write("classifier.xml")
@@ -91,6 +90,4 @@ if __name__ == "__main__":
    
    
    
-#----------Install cv2 properly-------
-
-#---------training is also not working------------   
+  
